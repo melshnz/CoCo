@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
+<style>
+body {
+    background-image: url('img/FrameRegis.png');
+    background-position: center;
+    background-repeat: no-repeat;
+  
+}
+</style>
+
 <body> 
 
 <div class="container" >
@@ -16,13 +25,13 @@
             <div class="col-6 col-md-4">
             
                 <br><br><br><br>
-            <div class="card-header text-center" style="color: black; font-size: 25px; font-family:Arial, Helvetica, sans-serif; background-color: white;">
-                    <b>Daftar</b>
-                </div>
+            <center><h1 style="color:white;">Daftar</h1></center>
+                    
+               
                 <br>
-                    <p class="text-center" style="color: black;">Daftarkan dirimu & bagi pengalamanmu bersama kami</p>
+                    <p class="text-center" style="color: white;">Daftarkan dirimu & bagi pengalamanmu bersama kami</p>
                     <div class="card-body">
-                        <style="margin-left:auto; margin-right:auto;" form class="" action="" method="post">
+                        <form style="margin-left:auto; margin-right:auto;" action="" method="post">
 
                             <div class="form-group">
                                 <input type="text" class="form-control" name="Nama" placeholder="Nama" required>
