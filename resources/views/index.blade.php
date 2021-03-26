@@ -74,6 +74,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="color: #FFF2F9; font-weight :600">Tentang</a>
                 </li>
+                <a class="nav-link" aria-current="page" href="#" style="color: white;">|</a>
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="color: #FFF2F9; font-weight :600; margin-left:20px">Masuk</a>
                 </li>
