@@ -25,3 +25,7 @@ Route::get('/login', function () {
 Route::get('/registrasi', function () {
     return view('registrasi');
 });
+
+Route::get('/diskusiBuat', function () {
+    return view('diskusiBuat');
+});
