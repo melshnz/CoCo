@@ -1,8 +1,13 @@
 <?php
 
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +21,29 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+    return view('beranda');
+})->name('beranda');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::get('/tentang', function(){
+    return view('tentang');
+})->name('tentang');
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');;
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
+
+Route::group(['middleware'=>'auth'], function() {
+    
+    // Home Controller
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/displayImage/{id}', [HomeController::class, 'displayImage'])->whereNumber('id')->name('displayImage');
+    Route::post('/newPost', [HomeController::class, 'newPost'])->name('newPost');
+
+    // Event Controller
+    Route::get('/event', [EventController::class, 'index'])->name('event');
+    Route::post('/newEvent', [EventController::class, 'newEvent'])->name('newEvent');
+});
